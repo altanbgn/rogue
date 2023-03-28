@@ -3,17 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GameManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Enemy
+  - Interactable
+  - Decoration
   - 
   - 
   - 
@@ -40,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Environment/Decoration
+    uniqueID: 1062978677
+    locked: 0
+  - name: Environment/Wall
+    uniqueID: 3752715743
+    locked: 0
+  - name: Entity
+    uniqueID: 799405131
+    locked: 0
+  - name: Environment/Base
+    uniqueID: 4051454981
     locked: 0
