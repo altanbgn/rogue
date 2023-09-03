@@ -1,8 +1,7 @@
 using UnityEngine;
 using Rogue.System;
 
-namespace Rogue.Player
-{
+namespace Rogue.Player {
   // Required components to run this script
   [RequireComponent(typeof(ActionScheduler))]
   [RequireComponent(typeof(Animator))]
@@ -10,8 +9,7 @@ namespace Rogue.Player
   [RequireComponent(typeof(PlayerAttributes))]
 
   // Main script
-  public class PlayerDodge : MonoBehaviour, IAction
-  {
+  public class PlayerDodge : MonoBehaviour, IAction {
     private ActionScheduler _scheduler;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
@@ -19,16 +17,14 @@ namespace Rogue.Player
 
     private float _dodgeCooldownCounter = Mathf.Infinity;
 
-    private void Start()
-    {
+    private void Start() {
       _scheduler = GetComponent<ActionScheduler>();
       _animator = GetComponent<Animator>();
       _rigidbody = GetComponent<Rigidbody2D>();
       _attributes = GetComponent<PlayerAttributes>();
     }
 
-    private void Update()
-    {
+    private void Update() {
       if (_attributes.dead)
         return;
 
@@ -41,10 +37,12 @@ namespace Rogue.Player
       Dodge();
     }
 
-    private void Dodge()
-    {
-      if (Input.GetButtonDown("Dodge") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f && _dodgeCooldownCounter > _attributes.dodgeCooldown)
-      {
+    private void Dodge() {
+      if (
+        Input.GetButtonDown("Dodge") &&
+        Mathf.Abs(_rigidbody.velocity.y) < 0.001f &&
+        _dodgeCooldownCounter > _attributes.dodgeCooldown
+      ) {
         // Trigger roll animation
         _animator.SetTrigger("Dodge");
 
@@ -60,18 +58,15 @@ namespace Rogue.Player
       }
     }
 
-    private void AE_Start_Immunity()
-    {
+    private void AE_Start_Immunity() {
       _attributes.dodgeImmunity = true;
     }
 
-    private void AE_End_Immunity()
-    {
+    private void AE_End_Immunity() {
       _attributes.dodgeImmunity = false;
     }
 
-    public void Abort()
-    {
+    public void Abort() {
       return;
     }
   }

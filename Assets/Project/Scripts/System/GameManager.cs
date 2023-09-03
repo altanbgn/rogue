@@ -2,10 +2,8 @@ using UnityEngine;
 using Rogue.Player;
 using Rogue.System;
 
-namespace Rogue.System
-{
-  public class GameManager : MonoBehaviour
-  {
+namespace Rogue.System {
+  public class GameManager : MonoBehaviour {
     public int stage = 1;
 
     private Attribute maxHealth;
@@ -19,23 +17,23 @@ namespace Rogue.System
 
     public bool bSaved = false;
 
-    public void ResetProgress()
-    {
+    public void ResetProgress() {
       Debug.Log("Reset Progress");
       stage = 1;
     }
 
-    public void ProgressStage()
-    {
+    public void ProgressStage() {
       stage++;
     }
 
-    public void SavePlayer()
-    {
-      PlayerAttributes attributes = GameObject.FindWithTag("Player").GetComponent<PlayerAttributes>();
+    public void SavePlayer() {
+      PlayerAttributes attributes = GameObject
+        .FindWithTag("Player")
+        .GetComponent<PlayerAttributes>();
 
-      if (!attributes)
+      if (!attributes) {
         return;
+      }
 
       maxHealth = attributes.maxHealth;
       currentHealth = attributes.currentHealth;
@@ -47,12 +45,14 @@ namespace Rogue.System
       bSaved = true;
     }
 
-    public void LoadPlayer()
-    {
-      PlayerAttributes attributes = GameObject.FindWithTag("Player").GetComponent<PlayerAttributes>();
+    public void LoadPlayer() {
+      PlayerAttributes attributes = GameObject
+        .FindWithTag("Player")
+        .GetComponent<PlayerAttributes>();
 
-      if (!attributes)
+      if (!attributes) {
         return;
+      }
 
       attributes.maxHealth = maxHealth;
       attributes.currentHealth = currentHealth;

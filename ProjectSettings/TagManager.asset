@@ -42,15 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Environment/Decoration
-    uniqueID: 1062978677
-    locked: 0
   - name: Environment/Wall
     uniqueID: 3752715743
     locked: 0
-  - name: Entity
-    uniqueID: 799405131
+  - name: Environment/Decoration
+    uniqueID: 1062978677
     locked: 0
   - name: Environment/Base
     uniqueID: 4051454981
+    locked: 0
+  - name: Entity
+    uniqueID: 799405131
     locked: 0

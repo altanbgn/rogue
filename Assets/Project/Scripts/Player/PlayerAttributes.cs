@@ -3,15 +3,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Rogue.System;
 
-namespace Rogue.Player
-{
+namespace Rogue.Player {
   // Required components to run this script
   [RequireComponent(typeof(ActionScheduler))]
   [RequireComponent(typeof(Animator))]
 
   // Main script
-  public class PlayerAttributes : MonoBehaviour
-  {
+  public class PlayerAttributes : MonoBehaviour {
     public Attribute maxHealth;
     public float currentHealth = 100f;
     [Space(10)]
@@ -31,29 +29,30 @@ namespace Rogue.Player
     private ActionScheduler _scheduler;
     private Animator _animator;
 
-    private void Start()
-    {
+    private void Start() {
       _scheduler = GetComponent<ActionScheduler>();
       _animator = GetComponent<Animator>();
 
       GameObject goGameManager = GameObject.FindWithTag("GameManager");
 
-      if (!goGameManager)
+      if (!goGameManager) {
         return;
+      }
 
       GameManager gameManager = goGameManager.GetComponent<GameManager>();
 
-      if (!gameManager)
+      if (!gameManager) {
         return;
+      }
 
-      if (gameManager.bSaved == false)
+      if (gameManager.bSaved == false) {
         return;
+      }
 
       gameManager.LoadPlayer();
     }
 
-    public void TakeDamage(float amount)
-    {
+    public void TakeDamage(float amount) {
       if (dead)
         return;
 
@@ -71,8 +70,7 @@ namespace Rogue.Player
       _animator.SetTrigger("Hit");
     }
 
-    private IEnumerator Die()
-    {
+    private IEnumerator Die() {
       if (dead)
         yield break;
 

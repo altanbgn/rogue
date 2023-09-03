@@ -1,7 +1,5 @@
-namespace Rogue.System
-{
-  public interface IAction
-  {
+namespace Rogue.System {
+  public interface IAction {
     void Abort();
   }
 }
